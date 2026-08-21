@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap URL is written with the production domain at build time.
+Sitemap: https://www.example.com/sitemap.xml

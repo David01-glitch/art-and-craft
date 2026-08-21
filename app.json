@@ -1,0 +1,20 @@
+{
+  "name": "senior-pet-companions-crafts",
+  "description": "Senior Pet Companions — a U.S. art & crafts publication (React + Vite + Express, prerendered).",
+  "repository": "https://github.com/David01-glitch/art-and-craft",
+  "keywords": ["art", "crafts", "diy", "painting", "react", "vite", "express"],
+  "env": {
+    "VITE_SITE_URL": {
+      "description": "Your production domain, e.g. https://www.yoursite.com (used for canonical URLs and sitemap).",
+      "value": "https://www.example.com",
+      "required": true
+    },
+    "NODE_ENV": {
+      "value": "production"
+    }
+  },
+  "buildpacks": [{ "url": "heroku/nodejs" }],
+  "scripts": {
+    "postdeploy": ""
+  }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#f8f4ec"/>
+  <!-- paint palette -->
+  <path d="M32 12c12 0 20 7 20 16 0 5-4 7-8 7h-3c-3 0-4 2-4 4 0 1 1 2 1 4 0 3-3 5-6 5-11 0-20-8-20-18S20 12 32 12z"
+        fill="#bf6a4b"/>
+  <circle cx="24" cy="24" r="3" fill="#f8f4ec"/>
+  <circle cx="34" cy="21" r="3" fill="#8a9a7b"/>
+  <circle cx="43" cy="26" r="3" fill="#6b8299"/>
+  <circle cx="24" cy="35" r="3" fill="#5b463a"/>
+  <!-- brush -->
+  <rect x="41" y="40" width="4" height="16" rx="2" transform="rotate(38 43 48)" fill="#5b463a"/>
+  <path d="M50 44l4 3-3 4-4-3z" fill="#8a9a7b"/>
+</svg>
