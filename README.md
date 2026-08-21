@@ -74,6 +74,31 @@ node scripts/fetch-images.mjs
 
 ## Deployment
 
-Includes `Procfile` and `app.json` for Node hosts (Railway, Heroku-style, Render, etc.).
-The host should run `npm install && npm run build`, then `npm start`.
-Remember to set `VITE_SITE_URL`.
+### AWS Amplify Hosting (static — recommended)
+
+Because the site prerenders to static HTML in `dist/`, Amplify serves it directly and
+`server.js` is **not** used there. Amplify picks up `amplify.yml` (build) and
+`customHttp.yml` (headers) automatically. Steps:
+
+1. **Connect the repo** in the Amplify console (or `amplify.yml` is detected on first build).
+2. **Set the environment variable** — App settings → Environment variables:
+   ```
+   VITE_SITE_URL = https://www.your-real-domain.com
+   ```
+   It is baked into canonical URLs, Open Graph tags, `sitemap.xml`, and `robots.txt` at build time.
+3. **Add rewrites for clean URLs + custom 404** — App settings → Rewrites and redirects →
+   *Open text editor*, then paste the contents of [`amplify-redirects.json`](./amplify-redirects.json).
+   These map `/about` → `/about.html` (HTTP 200) for every route and send unknown paths to the
+   404 page. (Classic Amplify hosting has no repo file for redirects — they live in the console.)
+4. **Deploy.** The build runs `npm ci`, installs headless Chromium, then `npm run build`
+   (Vite build + prerender + sitemap/robots/icon). Artifacts are served from `dist/`.
+
+> Note on the build: prerendering uses Playwright's Chromium. `amplify.yml` installs it with
+> `npx playwright install --with-deps chromium`. If a future Amplify build image lacks the system
+> libraries, switch the app to a build image that includes them (Amplify console → Build settings →
+> Build image), or run the build in a container.
+
+### Node hosts (Railway, Render, Heroku-style)
+
+Includes `Procfile` and `app.json`. The host should run `npm install && npm run build`, then
+`npm start` (Express serves `dist/` with gzip). Remember to set `VITE_SITE_URL`.

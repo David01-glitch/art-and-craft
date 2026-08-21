@@ -1,0 +1,13 @@
+[
+  { "source": "/about",     "target": "/about.html",     "status": "200", "condition": null },
+  { "source": "/crafts",    "target": "/crafts.html",    "status": "200", "condition": null },
+  { "source": "/painting",  "target": "/painting.html",  "status": "200", "condition": null },
+  { "source": "/diy",       "target": "/diy.html",       "status": "200", "condition": null },
+  { "source": "/community", "target": "/community.html", "status": "200", "condition": null },
+  { "source": "/blog",      "target": "/blog.html",      "status": "200", "condition": null },
+  { "source": "/contact",   "target": "/contact.html",   "status": "200", "condition": null },
+  { "source": "/privacy",   "target": "/privacy.html",   "status": "200", "condition": null },
+  { "source": "/terms",     "target": "/terms.html",     "status": "200", "condition": null },
+  { "source": "/refund",    "target": "/refund.html",    "status": "200", "condition": null },
+  { "source": "/<*>",       "target": "/404.html",       "status": "404", "condition": null }
+]
